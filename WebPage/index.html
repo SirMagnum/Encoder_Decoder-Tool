@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Encryption/Decryption Tool</title>
+    <link rel="stylesheet" href="style.css">
+
+    <script>
+        async function handleSubmit(event) {
+            event.preventDefault();
+
+            const form = event.target.closest("form");
+            const formData = new FormData(form);
+            const params = new URLSearchParams();
+
+            for (const [key, value] of formData.entries()) {
+                console.log(`${key}: ${value}`);
+                params.append(key, value);
+            }
+
+            try {
+                const response = await fetch("process", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/x-www-form-urlencoded"
+                    },
+                    body: params
+                });
+
+                const resultText = await response.text();
+                document.getElementById("resultBox").value = resultText;
+
+            } catch (error) {
+                document.getElementById("resultBox").value = "Something went wrong.";
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Encryption & Decryption</h2>
+        <form onsubmit="handleSubmit(event)">
+            <label>Enter Text:</label><br>
+            <input type="text" name="text" required><br><br>
+
+            <label>Choose Algorithm:</label><br>
+            <select name="algorithm">
+                <option value="caesar">Caesar Cipher</option>
+                <option value="vigenere">Vigenere Cipher</option>
+                <option value="base64">Base64</option>
+            </select><br><br>
+
+            <label>Key (Shift or Keyword):</label><br>
+            <input type="text" name="key"><br><br>
+
+            <label>Operation:</label><br>
+            <input type="radio" name="operation" value="encrypt" checked> Encrypt<br>
+            <input type="radio" name="operation" value="decrypt"> Decrypt<br><br>
+
+            <input type="submit" value="Submit"><br><br>
+
+            <!-- Output Box -->
+            <label>Result:</label><br>
+            <textarea id="resultBox" rows="4" cols="38" readonly></textarea><br><br>
+        </form>
+    </div>
+</body>
+
+</html>

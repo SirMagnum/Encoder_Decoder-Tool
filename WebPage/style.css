@@ -1,0 +1,82 @@
+/* Apply gradient background and center content */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to bottom right, #000000, #333333, #cccccc, #ffffff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Form container styling */
+form {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 30px 40px;
+    border-radius: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    width: 300px;
+}
+
+/* Heading */
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #222;
+}
+
+/* Labels */
+label {
+    font-weight: 500;
+    color: #333;
+  }
+
+/* Input and select styles */
+input[type="text"], select {
+    width: 91%;
+    padding: 8px 12px;
+    margin-top: 4px;
+    margin-bottom: 12px;
+    border: 1px solid #bbb;
+    border-radius: 10px;
+    background-color: #f8f8f8;
+    color: #000;
+    font-size: 14px;
+}
+
+/* Radio buttons */
+input[type="radio"] {
+    margin-right: 6px;
+}
+
+/* Submit button */
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(to right, #333, #666);
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background: linear-gradient(to right, #000, #444);
+}
+
+/* Wrapper container */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Heading */
+h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #fff;
+}
